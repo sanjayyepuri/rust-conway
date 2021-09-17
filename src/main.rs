@@ -1,16 +1,6 @@
 use std::io::{Write, stdout};
 use std::{thread, time};
 
-use termion::{event::Key, input::MouseTerminal, raw::IntoRawMode, screen::AlternateScreen};
-use tui::{
-    backend::TermionBackend,
-    layout::{Alignment, Constraint, Direction, Layout},
-    style::{Color, Modifier, Style},
-    text::Span,
-    widgets::{Block, BorderType, Borders},
-    Terminal,
-};
-
 mod conway;
 
 fn main() {

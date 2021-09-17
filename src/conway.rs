@@ -114,6 +114,7 @@ const fn to_boolean<const H: usize, const W: usize>(arr: [[i32; W]; H]) -> [[boo
             bool_arr[i][j] = arr[i][j] == 1;   
             j += 1;
         }
+        j = 0;
         i += 1;
     }
     return bool_arr;
