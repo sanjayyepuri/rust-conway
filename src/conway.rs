@@ -19,11 +19,10 @@ impl<const H: usize, const W: usize> ConwayBoard<H, W> {
                 count += self.board[i][j] as u8;
             }
         }
-
         return count;
     }
 
-    pub fn transition(&mut self) {
+    pub fn next(&mut self) {
         let mut next_gen = self.board;
         for y in 0..H {
             for x in 0..W {
@@ -35,7 +34,6 @@ impl<const H: usize, const W: usize> ConwayBoard<H, W> {
                 }
             }
         }
-
         self.board = next_gen;
     }
 }
@@ -62,7 +60,6 @@ impl<const H: usize, const W: usize> fmt::Display for ConwayBoard<H, W>{
         writeln!(f)
     }
 }
-
 
 static _BLINKER: [[bool; 5]; 5] = to_boolean([
     [0,0,0,0,0], 
@@ -105,7 +102,8 @@ pub static _GLIDER_GUN: [[bool; 36]; 21] = to_boolean([
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ]);
 
-const fn to_boolean<const H: usize, const W: usize>(arr: [[i32; W]; H]) -> [[bool; W]; H] {
+const fn to_boolean<const H: usize, const W: usize>(arr: [[i32; W]; H]) 
+-> [[bool; W]; H] {
     let mut bool_arr =  [[false; W]; H];
     let mut i = 0;
     let mut j = 0;

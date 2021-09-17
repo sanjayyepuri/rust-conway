@@ -13,8 +13,8 @@ fn main() {
         termion::cursor::Goto(1, 1),
         termion::cursor::Hide)  
             .unwrap();
-    
     stdout.flush().unwrap();
+
     loop {
         write!(stdout,
             "{}{}",
@@ -23,9 +23,8 @@ fn main() {
              .unwrap();
 
         writeln!(stdout, "{}", board).unwrap();
+        board.next();
 
-        board.transition();
         thread::sleep(time::Duration::from_millis(1000 / 12))
     }
 }
-
